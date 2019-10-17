@@ -1,4 +1,4 @@
-name: Publish Docker Android
+name: Publish Docker Android for hICN
 on: [push]
 jobs:
   build:
