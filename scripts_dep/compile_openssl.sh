@@ -30,7 +30,7 @@ make install_sw
 cd /
 
 mkdir -p /build_i686
-architecture=android-i686
+architecture=android-x86
 
 if [ ! -d /build_i686/openssl-1.1.1d ]; then
     if [ ! -f /src/openssl-1.1.1d.tar.gz ]; then
