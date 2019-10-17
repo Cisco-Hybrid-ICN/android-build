@@ -5,7 +5,7 @@ set -ex
 export ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk-bundle/
 
 echo $ANDROID_NDK_HOME
-toolchains_path=$(python /scripts/toolchains_path.py --ndk ${ANDROID_NDK_HOME})
+toolchains_path=$(python /scripts_dep/toolchains_path.py --ndk ${ANDROID_NDK_HOME})
 CC=clang
 echo $PATH
 PATH=$toolchains_path/bin:$PATH
