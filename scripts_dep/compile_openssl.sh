@@ -29,21 +29,17 @@ make install_sw
 
 cd /
 
-mkdir -p /build_x86
-architecture=android-x86
+mkdir -p /build_i686
+architecture=android-i686
 
-if [ ! -d /build_x86/openssl-1.1.1d ]; then
+if [ ! -d /build_i686/openssl-1.1.1d ]; then
     if [ ! -f /src/openssl-1.1.1d.tar.gz ]; then
-        if [ ! -f openssl-1.1.1d.tar.gz ]; then
-            wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz
-        fi
-        tar -zxvf openssl-1.1.1d.tar.gz -C /build_x86
-    else
-        tar -zxvf /src/openssl-1.1.1d.tar.gz -C /build_x86
+        wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz -P /src/
     fi
+    tar -zxvf /src/openssl-1.1.1d.tar.gz -C /build_i686
 fi
 
-cd /build_x86/openssl-1.1.1d
-./Configure -d ${architecture} -D__ANDROID_API__=$ANDROID_API no-shared no-unit-test --prefix=/usr_x86
+cd /build_i686/openssl-1.1.1d
+./Configure -d ${architecture} -D__ANDROID_API__=$ANDROID_API no-shared no-unit-test --prefix=/usr_i686
 make install_sw
     
