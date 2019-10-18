@@ -1,0 +1,16 @@
+name: Publish Docker Android Build with hICN Dependencies
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: icn-team/android-build/hicn
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: docker.pkg.github.com
+        dockerfile: Dockerfile_hicn
+        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/dep:latest
