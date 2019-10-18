@@ -11,12 +11,12 @@ IMAGE=$(docker images -q hicn_dependencies)
 
 if [ "$IMAGE" = "" ]; then
     echo "hicn_dependencies docker image does not exist"
-    docker build -t hicn_dependencies -f Dockerfile_dep .
+    docker build --build-arg DOCKER_IMAGE=hicn_environment -t hicn_dependencies -f Dockerfile_dep .
 fi
 
 IMAGE=$(docker images -q hicn)
 
 if [ "$IMAGE" = "" ]; then
     echo "hicn docker image does not exist"
-    docker build -t hicn -f Dockerfile_hicn .
+    docker build --build-arg DOCKER_IMAGE=hicn_dependencies -t hicn -f Dockerfile_hicn .
 fi

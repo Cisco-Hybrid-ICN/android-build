@@ -1,4 +1,6 @@
-FROM docker.pkg.github.com/icn-team/android-build/env:latest
+ARG DOCKER_IMAGE
+
+FROM ${DOCKER_IMAGE}
 
 MAINTAINER Angelo Mantellini <manangel@cisco.com>
 

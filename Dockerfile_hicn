@@ -1,4 +1,8 @@
-FROM hicn_dependencies
+ARG DOCKER_IMAGE
+
+FROM ${DOCKER_IMAGE}
+
+#hicn_dependencies
 
 MAINTAINER Angelo Mantellini <manangel@cisco.com>
 
