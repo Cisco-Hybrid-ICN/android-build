@@ -20,14 +20,14 @@ cd /build_aarch64/libparc
 
 make -j install
 
-mkdir -p /build_i686/libparc
-cd /build_i686/libparc
+mkdir -p /build_x86/libparc
+cd /build_x86/libparc
 
 /opt/android-sdk-linux/cmake/$ANDROID_CMAKE_REV_3_10/bin/cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
                         -DANDROID_TOOLCHAIN=clang -DANDROID_STL=c++_static \
                         -DANDROID_ABI=x86 \
-                        -DCMAKE_FIND_ROOT_PATH=/usr_i686  \
+                        -DCMAKE_FIND_ROOT_PATH=/usr_x86  \
                         -DANDROID_NATIVE_API_LEVEL=26 \
-					    -DCMAKE_INSTALL_PREFIX=/usr_i686 $LIBPARC_SRC
+					    -DCMAKE_INSTALL_PREFIX=/usr_x86 $LIBPARC_SRC
 
 make -j install
