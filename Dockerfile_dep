@@ -1,4 +1,4 @@
-FROM hicn_environment
+FROM docker.pkg.github.com/icn-team/android-build/env:latest
 
 MAINTAINER Angelo Mantellini <manangel@cisco.com>
 
