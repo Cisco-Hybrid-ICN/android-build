@@ -1,7 +1,7 @@
 name: Publish Docker Android Build with hICN Dependencies
 on:
-  scheduler:
-    - cront: '0 0 1 */2 *'
+  schedule:
+    - cron: '0 0 1 */2 *'
 jobs:
   build:
     runs-on: ubuntu-latest
