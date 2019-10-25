@@ -1,4 +1,4 @@
-name: Publish Docker Android Build with hICN Dependencies
+name: Publish Docker for Android Build with hICN Dependencies
 on: [push]
 jobs:
   build:
