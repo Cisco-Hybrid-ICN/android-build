@@ -14,9 +14,6 @@
 ##############################################################################
 
 
-ARG DOCKER_IMAGE
-
-FROM ${DOCKER_IMAGE}
 
 MAINTAINER Angelo Mantellini <manangel@cisco.com>
 
