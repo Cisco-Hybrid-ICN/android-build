@@ -9,6 +9,7 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: icn-team/android-build/dep
+        tag_names: true
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: docker.pkg.github.com
