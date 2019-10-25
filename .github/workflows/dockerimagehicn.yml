@@ -1,4 +1,4 @@
-name: Publish Docker Android Build with hICN Dependencies
+name: Publish Docker Android Build with hICN stack
 on: [push]
 jobs:
   build:
@@ -13,4 +13,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: docker.pkg.github.com
         dockerfile: Dockerfile_hicn
-        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/dep:latest
+        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/dep:docker-base-layer
