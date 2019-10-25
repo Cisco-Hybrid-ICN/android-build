@@ -1,3 +1,18 @@
+#############################################################################
+# Copyright (c) 2019 Cisco and/or its affiliates.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+##############################################################################
+
 #!/bin/bash
 set -ex
 
@@ -6,14 +21,12 @@ function show_help {
     echo "--skip-libevent = skip the libevent libraries building"
     echo "--skip-asio = skip the asio libraries building"
     echo "--skip-libconfig = skip the libconfig libraries building"
-    echo "--skip-libparc = skip the libparc libraries building"
 }
 
 SKIP_OPENSSL=0
 SKIP_LIBEVENT=0
 SKIP_ASIO=0
 SKIP_LIBCONFIG=0
-SKIP_LIBPARC=0
 
 for var in "$@"
 do
@@ -29,9 +42,6 @@ do
             ;;
         "--skip-libconfig")      
             SKIP_LIBCONFIG=1
-            ;;
-        "--skip-libparc")      
-            SKIP_LIBPARC=1
             ;;
         "--skip-hicn")      
             SKIP_HICN=1
@@ -62,8 +72,4 @@ fi
 
 if [ $SKIP_LIBCONFIG -eq 0 ]; then
     bash /scripts_dep/compile_libconfig.sh
-fi
-
-if [ $SKIP_LIBPARC -eq 0 ]; then
-    bash /scripts_dep/compile_libparc.sh
 fi
