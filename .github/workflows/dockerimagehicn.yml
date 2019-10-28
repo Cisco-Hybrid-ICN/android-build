@@ -1,7 +1,5 @@
 name: Publish Docker Android Build with hICN stack
-on:
-  schedule:
-    - cron:  '0 0 1 */6 *'
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,9 +8,9 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: icn-team/android-build/hicn
+        name: icn-team/android-build/hicn:latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: docker.pkg.github.com
         dockerfile: Dockerfile_hicn
-        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/dep:docker-base-layer
+        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/dep
