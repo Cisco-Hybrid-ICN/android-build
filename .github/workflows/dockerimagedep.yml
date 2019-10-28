@@ -1,6 +1,6 @@
 name: Docker Android hICN Dependencies
 on:
-    schedule:
+  schedule:
     - cron:  '0 0 1 */6 *'
 jobs:
   build:
