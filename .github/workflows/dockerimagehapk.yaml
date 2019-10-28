@@ -1,7 +1,5 @@
 name: Publish Docker Android Build with android APKs
-on:
-  schedule:
-    - cron: '0 0 1 */6 *'
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
