@@ -1,5 +1,7 @@
 name: Publish Docker for Android Build with hICN Dependencies
-on: [push]
+on:
+    schedule:
+    - cron:  '0 0 1 */6 *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,4 +16,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: docker.pkg.github.com
         dockerfile: Dockerfile_dep
-        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/env:latest
+        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/env

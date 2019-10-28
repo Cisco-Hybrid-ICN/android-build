@@ -14,4 +14,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: docker.pkg.github.com
         dockerfile: Dockerfile_test
-        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/env:latest
+        buildargs: DOCKER_IMAGE=docker.pkg.github.com/icn-team/android-build/env
