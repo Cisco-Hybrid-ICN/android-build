@@ -13,13 +13,22 @@
 # limitations under the License.
 ##############################################################################
 
-ARG DOCKER_IMAGE
+#!/bin/bash
 
-FROM ${DOCKER_IMAGE}
+set -ex
 
-MAINTAINER Angelo Mantellini <manangel@cisco.com>
+export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk-bundle/
+if [ ! -d /src/QtAV ]; then
+	git clone https://github.com/wang-bin/QtAV.git /src/QtAV
+fi
 
-COPY scripts_dep scripts_dep
-COPY external external
-
-RUN bash scripts_dep/build_all.sh
+cd /src/QtAV
+git submodule update --init
+echo "INCLUDEPATH = /usr_aarch64/include/" > .qmake.conf
+echo "LIBS = -L/usr_aarch64/lib/" >> .qmake.conf
+mkdir -p /build_aarch64/qtav
+cd /build_aarch64/qtav
+$QT_HOME/$QT_VERSION/android_arm64_v8a/bin/qmake /src/QtAV/QtAV.pro -spec android-clang
+make
+make install INSTALL_ROOT=android_arm64_v8a
+sh sdk_install.sh

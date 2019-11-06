@@ -21,12 +21,22 @@ function show_help {
     echo "--skip-libevent = skip the libevent libraries building"
     echo "--skip-asio = skip the asio libraries building"
     echo "--skip-libconfig = skip the libconfig libraries building"
+    echo "--skip-libxml2 = skip the libxml2 libraries building"
+    echo "--skip-libcurl = skip the libcurl libraries building"
+    echo "--skip-libash = skip the libdash libraries building"
+    echo "--skip-ffmpeg = skip the ffmpeg libraries building"
+    echo "--skip-qtav = skip the qtav libraries building"
 }
 
 SKIP_OPENSSL=0
 SKIP_LIBEVENT=0
 SKIP_ASIO=0
 SKIP_LIBCONFIG=0
+SKIP_LIBXML2=0
+SKIP_LIBCURL=0
+SKIP_LIBDASH=0
+SKIP_FFMPEG=0
+SKIP_QTAV=0
 
 for var in "$@"
 do
@@ -43,8 +53,17 @@ do
         "--skip-libconfig")      
             SKIP_LIBCONFIG=1
             ;;
-        "--skip-hicn")      
-            SKIP_HICN=1
+        "--skip-libxml2")      
+            SKIP_LIBDASH=1
+            ;;
+         "--skip-libdash")      
+            SKIP_LIBDASH=1
+            ;;
+         "--skip-ffmpeg")      
+            SKIP_FFMPEG=1
+            ;;
+         "--skip-qtav")      
+            SKIP_QTAV=1
             ;;
          "--help")
             show_help
@@ -72,4 +91,24 @@ fi
 
 if [ $SKIP_LIBCONFIG -eq 0 ]; then
     bash /scripts_dep/compile_libconfig.sh
+fi
+
+if [ $SKIP_LIBCURL -eq 0 ]; then
+    bash /scripts_dep/compile_libcurl.sh
+fi
+
+if [ $SKIP_LIBXML2 -eq 0 ]; then
+    bash /scripts_dep/compile_libxml2.sh
+fi
+
+if [ $SKIP_LIBDASH -eq 0 ]; then
+    bash /scripts_dep/compile_libdash.sh
+fi
+
+if [ $SKIP_FFMPEG -eq 0 ]; then
+   bash /scripts_dep/compile_ffmpeg.sh
+fi
+
+if [ $SKIP_QTAV -eq 0 ]; then
+   bash /scripts_dep/compile_qtav.sh
 fi

@@ -13,13 +13,17 @@
 # limitations under the License.
 ##############################################################################
 
-ARG DOCKER_IMAGE
+#!/bin/bash
 
-FROM ${DOCKER_IMAGE}
+set -ex
 
-MAINTAINER Angelo Mantellini <manangel@cisco.com>
-
-COPY scripts_dep scripts_dep
-COPY external external
-
-RUN bash scripts_dep/build_all.sh
+if [ ! -f ffmpeg-master-android-clang.tar.xz ]; then
+	wget https://iweb.dl.sourceforge.net/project/avbuild/android/ffmpeg-master-android-clang.tar.xz
+fi
+	
+tar xf ffmpeg-master-android-clang.tar.xz
+mv ffmpeg-master-android-clang ffmpeg
+mkdir -p /usr_aarch64/include/
+mkdir -p /usr_aarch64/lib/
+cp -r ffmpeg/include/* /usr_aarch64/include/
+cp ffmpeg/lib/arm64-v8a/lib* /usr_aarch64/lib/
