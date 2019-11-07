@@ -39,6 +39,8 @@ cd /build_aarch64/libconfig
 
 make -j install
 
+rm -rf /build_aarch64
+
 mkdir -p /build_i686/libconfig
 cd /build_i686/libconfig
 
@@ -52,3 +54,7 @@ cd /build_i686/libconfig
 					    -DCMAKE_INSTALL_PREFIX=/usr_i686 $LIBCONFIG_SRC
 
 make -j install
+
+rm -rf /build_i686
+
+rm -rf /src/libconfig

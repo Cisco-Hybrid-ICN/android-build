@@ -31,7 +31,7 @@ mkdir -p /src
 
 if [ ! -d /build_aarch64/openssl-1.1.1d ]; then
     if [ ! -f /src/openssl-1.1.1d.tar.gz ]; then
-        wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz -P /src/
+        wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz -P /src/ --show-progress --progress=bar:force 2>&1 
     fi
     tar -zxvf /src/openssl-1.1.1d.tar.gz -C /build_aarch64
 fi
@@ -43,13 +43,15 @@ make install_sw
 
 cd /
 
+rm -rf /build_aarch64
+
 mkdir -p /build_i686
 architecture=android-x86
 
 if [ ! -d /build_i686/openssl-1.1.1d ]; then
     if [ ! -f /src/openssl-1.1.1d.tar.gz ]; then
         if [ ! -f openssl-1.1.1d.tar.gz ]; then
-            wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz
+            wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz --show-progress --progress=bar:force 2>&1 
         fi
         tar -zxvf openssl-1.1.1d.tar.gz -C /build_i686
     else
@@ -60,4 +62,8 @@ fi
 cd /build_i686/openssl-1.1.1d
 ./Configure -d ${architecture} -D__ANDROID_API__=$ANDROID_API no-shared no-unit-test --prefix=/usr_i686
 make install_sw
+
+rm -rf /build_i686
+
+rm -rf /src/openssl-1.1.1d.tar.gz
     

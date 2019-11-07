@@ -32,3 +32,7 @@ $QT_HOME/$QT_VERSION/android_arm64_v8a/bin/qmake /src/QtAV/QtAV.pro -spec androi
 make
 make install INSTALL_ROOT=android_arm64_v8a
 sh sdk_install.sh
+
+rm -rf /build_aarch64
+
+rm -rf /src/QtAV

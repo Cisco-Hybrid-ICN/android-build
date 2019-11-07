@@ -36,6 +36,8 @@ cd /build_aarch64/libcurl
 
 make -j install
 
+rm -rf /build_aarch74
+
 mkdir -p /build_i686/libcurl
 cd /build_i686/libcurl
 
@@ -47,3 +49,7 @@ cd /build_i686/libcurl
 					    -DCMAKE_INSTALL_PREFIX=/usr_i686 $LIBCURL_SRC
 
 make -j install
+
+rm -rf /build_i686
+
+rm -rf /src/libcurl

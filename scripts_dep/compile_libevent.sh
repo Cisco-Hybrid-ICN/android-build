@@ -38,6 +38,8 @@ cd /build_aarch64/libevent
 
 make -j install
 
+rm -rf /build_aarch64
+
 mkdir -p /build_i686/libevent
 cd /build_i686/libevent
 
@@ -50,3 +52,7 @@ cd /build_i686/libevent
 					    -DCMAKE_INSTALL_PREFIX=/usr_i686 $LIBEVENT_SRC
 
 make -j install
+
+rm -rf /build_i686
+
+rm -rf /src/libevent

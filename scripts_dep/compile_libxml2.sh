@@ -41,6 +41,8 @@ cd /build_aarch64/libxml2
 
 make -j install
 
+rm -rf /build_aarch64
+
 mkdir -p /build_i686/libxml2
 cd /build_i686/libxml2
 
@@ -52,3 +54,7 @@ cd /build_i686/libxml2
 					    -DCMAKE_INSTALL_PREFIX=/usr_i686 $LIBXML2_SRC
 
 make -j install
+
+rm -rf /build_i686
+
+rm -rf /src/libevent

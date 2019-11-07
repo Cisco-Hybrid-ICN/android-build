@@ -36,6 +36,8 @@ cd /build_aarch64/libdash
 
 make -j install
 
+rm -rf /build_aarch64
+
 mkdir -p /build_i686/libdash
 cd /build_i686/libdash
 
@@ -47,3 +49,7 @@ cd /build_i686/libdash
 					    -DCMAKE_INSTALL_PREFIX=/usr_i686 $LIBDASH_SRC
 
 make -j install
+
+rm -rf /build_i686
+
+rm -rf /src/viper

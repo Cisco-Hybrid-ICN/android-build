@@ -17,7 +17,7 @@
 
 set -ex
 
-mkdir -p src
+mkdir -p /src
 
 if [ ! -d /usr_aarch64/include/asio ]; then
 	if [ ! -d /src/asio ]; then
@@ -38,3 +38,5 @@ if [ ! -d /usr_i686/include/asio ]; then
 	cp -rf /src/asio/asio/include/asio.hpp /usr_i686/include/
 	cp -rf /src/asio/asio/include/asio /usr_i686/include/
 fi
+
+rm -rf /src/asio
