@@ -38,6 +38,8 @@ cd /build_aarch64/hicn
 
 make -j install
 
+rm -rf /build_aarch64
+
 mkdir -p /build_i686/hicn
 cd /build_i686/hicn
 
@@ -50,3 +52,7 @@ cd /build_i686/hicn
 					    -DCMAKE_INSTALL_PREFIX=/usr_i686 $HICN_SRC
 
 make -j install
+
+rm -rf /build_i686
+
+rm -rf /src/hicn
