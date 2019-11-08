@@ -77,16 +77,6 @@ do
     esac
 done
 
-if [ $SKIP_FFMPEG -eq 0 ]; then
-   bash /scripts_dep/compile_ffmpeg.sh
-fi
-
-if [ $SKIP_QTAV -eq 0 ]; then
-   bash /scripts_dep/compile_qtav.sh
-fi
-
-exit 1
-
 if [ $SKIP_OPENSSL -eq 0 ]; then
    bash /scripts_dep/compile_openssl.sh
 fi
@@ -113,6 +103,14 @@ fi
 
 if [ $SKIP_LIBDASH -eq 0 ]; then
     bash /scripts_dep/compile_libdash.sh
+fi
+
+if [ $SKIP_FFMPEG -eq 0 ]; then
+   bash /scripts_dep/compile_ffmpeg.sh
+fi
+
+if [ $SKIP_QTAV -eq 0 ]; then
+   bash /scripts_dep/compile_qtav.sh
 fi
 
 
