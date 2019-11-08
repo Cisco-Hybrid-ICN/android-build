@@ -21,6 +21,8 @@ mkdir -p /src
 export ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk-bundle/
 if [ ! -d /src/libxml2 ]; then
 	git clone https://github.com/GNOME/libxml2.git /src/libxml2
+	cd /src/libxml2
+	git checkout tags/v2.9.9
 fi
 LIBXML2_SRC=/src/libxml2
 

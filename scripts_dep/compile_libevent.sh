@@ -21,6 +21,8 @@ mkdir -p /src
 export ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk-bundle/
 if [ ! -d /src/libevent ]; then
     git clone https://github.com/libevent/libevent.git /src/libevent
+    cd /src/libevent
+	git checkout tags/release-2.1.11-stable
 fi
 LIBEVENT_SRC=/src/libevent
 

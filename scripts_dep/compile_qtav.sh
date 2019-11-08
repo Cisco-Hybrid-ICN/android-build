@@ -20,6 +20,8 @@ set -ex
 export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk-bundle/
 if [ ! -d /src/QtAV ]; then
 	git clone https://github.com/wang-bin/QtAV.git /src/QtAV
+	cd /src/QtAV
+	git checkout tags/v1.13.0
 fi
 
 cd /src/QtAV
@@ -31,8 +33,11 @@ cd /build_aarch64/qtav
 $QT_HOME/$QT_VERSION/android_arm64_v8a/bin/qmake /src/QtAV/QtAV.pro -spec android-clang
 make
 make install INSTALL_ROOT=android_arm64_v8a
+cat sdk_install.sh
 sh sdk_install.sh
 
 rm -rf /build_aarch64
+
+find /opt/Qt -name QtAV
 
 rm -rf /src/QtAV

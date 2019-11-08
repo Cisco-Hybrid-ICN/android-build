@@ -21,6 +21,8 @@ mkdir -p /src
 export ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk-bundle/
 if [ ! -d /src/libconfig ]; then
 	git clone https://github.com/hyperrealm/libconfig.git /src/libconfig
+	cd /src/libconfig
+	git checkout tags/v1.7.2
 	sed -i -- '2s/$/include(CheckSymbolExists)/' /src/libconfig/CMakeLists.txt
 fi
 LIBCONFIG_SRC=/src/libconfig

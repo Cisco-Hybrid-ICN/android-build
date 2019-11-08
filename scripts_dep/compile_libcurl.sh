@@ -21,6 +21,8 @@ mkdir -p /src
 export ANDROID_NDK_HOME=/opt/android-sdk-linux/ndk-bundle/
 if [ ! -d /src/libcurl ]; then
 	git clone https://github.com/curl/curl.git /src/libcurl
+	cd /src/curl
+	git checkout tags/curl-7_66_0
 fi
 LIBCURL_SRC=/src/libcurl
 
