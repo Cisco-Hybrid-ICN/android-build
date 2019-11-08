@@ -1,3 +1,3 @@
 # android-build
 
-This repository contains the docker files to build the hicn stack and android APKs
+This repository contains the docker files to build the hicn stack
