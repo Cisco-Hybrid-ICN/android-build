@@ -19,8 +19,6 @@ FROM ${DOCKER_IMAGE}
 
 MAINTAINER Angelo Mantellini <manangel@cisco.com>
 
-RUN mkdir -p src
-
 COPY scripts_dep scripts_dep
 COPY external external
 
