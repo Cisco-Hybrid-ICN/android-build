@@ -19,12 +19,12 @@ set -ex
 
 mkdir -p /src
 
-if [ ! -f /src/ffmpeg-master-android-clang.tar.xz ]; then
-	wget -P /src https://iweb.dl.sourceforge.net/project/avbuild/android/ffmpeg-master-android-clang.tar.xz --show-progress --progress=bar:force 2>&1 
+if [ ! -f /src/ffmpeg-4.2-android-clang.tar.xz ]; then
+	wget -P /src https://sourceforge.net/projects/avbuild/files/android/ffmpeg-4.2-android-clang.tar.xz --show-progress --progress=bar:force 2>&1 
 fi
 	
-tar xf /src/ffmpeg-master-android-clang.tar.xz -C /src
-mv /src/ffmpeg-master-android-clang /src/ffmpeg
+tar xf /src/ffmpeg-4.2-android-clang.tar.xz -C /src
+mv /src/ffmpeg-4.2-android-clang /src/ffmpeg
 mkdir -p /usr_aarch64/include/
 mkdir -p /usr_aarch64/lib/
 cp -r /src/ffmpeg/include/* /usr_aarch64/include/
