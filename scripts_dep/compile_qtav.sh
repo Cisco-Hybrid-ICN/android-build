@@ -38,6 +38,7 @@ sh sdk_install.sh
 
 rm -rf /build_aarch64
 
+cd /src/QtAV
 echo "INCLUDEPATH = /usr_i686/include/" > .qmake.conf
 echo "LIBS = -L/usr_i686/lib/" >> .qmake.conf
 mkdir -p /build_i686/qtav
