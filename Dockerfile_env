@@ -46,8 +46,8 @@ ENV QT_VERSION=5.13.1
 RUN git clone https://github.com/benlau/qtci.git && pwd
 
 ENV PATH PATH=$PATH:$PWD/qtci/bin:$PWD/qtci/recipes
-ENV QT_CI_PACKAGES=qt.qt5.5131.android_arm64_v8a,qt.qt5.5131.qtcharts.android_arm64_v8a,qt.qt5.5131.qtcharts
-RUN cd /opt && install-qt 5.13.1 && rm *.run && rm -rf /qtci
+ENV QT_CI_PACKAGES=qt.qt5.5131.android_arm64_v8a,qt.qt5.5131.qtcharts.android_arm64_v8a,qt.qt5.5131.qtcharts,qt.qt5.5131.android_x86,qt.qt5.5131.qtcharts.android_x86
+RUN cd /opt && install-qt 5.13.1 && rm -rf /opt/Qt/MaintenanceTool.* && rm -rf /opt/Qt/Qt\ Creator.app *.run && rm -rf /qtci
 
 RUN    mkdir -p ${ANDROID_HOME} \
     && wget --quiet --output-document=${ANDROID_HOME}/android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS_REV}.zip \
