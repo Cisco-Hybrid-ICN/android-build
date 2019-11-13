@@ -30,4 +30,9 @@ mkdir -p /usr_aarch64/lib/
 cp -r /src/ffmpeg/include/* /usr_aarch64/include/
 cp /src/ffmpeg/lib/arm64-v8a/lib* /usr_aarch64/lib/
 
+mkdir -p /usr_i686/include/
+mkdir -p /usr_i686/lib/
+cp -r /src/ffmpeg/include/* /usr_i686/include/
+cp /src/ffmpeg/lib/x86/lib* /usr_i686/lib/
+
 rm -rf /src/ffmpeg*
