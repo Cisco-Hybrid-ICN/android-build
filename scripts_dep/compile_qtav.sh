@@ -38,6 +38,16 @@ sh sdk_install.sh
 
 rm -rf /build_aarch64
 
-find /opt/Qt -name QtAV
+echo "INCLUDEPATH = /usr_i686/include/" > .qmake.conf
+echo "LIBS = -L/usr_i686/lib/" >> .qmake.conf
+mkdir -p /build_i686/qtav
+cd /build_i686/qtav
+$QT_HOME/$QT_VERSION/android_x86/bin/qmake /src/QtAV/QtAV.pro -spec android-clang
+make
+make install INSTALL_ROOT=android_x86
+cat sdk_install.sh
+sh sdk_install.sh
+
+rm -rf /build_i686
 
 rm -rf /src/QtAV
