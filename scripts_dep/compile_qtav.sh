@@ -35,7 +35,6 @@ make
 make install INSTALL_ROOT=android_arm64_v8a
 cat sdk_install.sh
 sh sdk_install.sh
-
 rm -rf /build_aarch64
 
 cd /src/QtAV
@@ -48,7 +47,6 @@ make
 make install INSTALL_ROOT=android_x86
 cat sdk_install.sh
 sh sdk_install.sh
-
 rm -rf /build_i686
 
 rm -rf /src/QtAV
